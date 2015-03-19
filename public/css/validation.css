@@ -1,0 +1,17 @@
+.error{
+	border-color: red !important;
+	border-width: 2px !important;
+}
+.modal-content{
+	min-height: 100px !important;
+}
+
+.msg{
+	margin-left: 10px !important;
+}
+
+.bg{
+	background-image: url("../images/bg.jpg");
+
+}
+

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/TCSRepo/!svn/ver/116458/AssociatePortal(MEAN)/app/routes
+END
+index.js
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/TCSRepo/!svn/ver/118069/AssociatePortal(MEAN)/app/routes/index.js
+END
+login.js
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/TCSRepo/!svn/ver/118070/AssociatePortal(MEAN)/app/routes/login.js
+END
+DropDatabase.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/TCSRepo/!svn/ver/116452/AssociatePortal(MEAN)/app/routes/DropDatabase.js
+END
+logout.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/TCSRepo/!svn/ver/117223/AssociatePortal(MEAN)/app/routes/logout.js
+END
+User.js
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/TCSRepo/!svn/ver/111017/AssociatePortal(MEAN)/app/routes/User.js
+END

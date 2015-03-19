@@ -1,0 +1,610 @@
+    <script>	
+	
+	$(document).ready(function(){
+// 		$('#collapseOne').collapse();
+// 		$('#collapseTwo').collapse();
+// 		$('#collapseThree').collapse();
+// 		$('#collapseFour').collapse();
+		 $('.input-group.date').datepicker({
+		    autoclose: true,
+		    format: "mm-dd-yyyy"
+		    });
+		$(".edit-personal-panel").hide();
+		$("#edit-personal-information a").click(function(){				
+			$(".non-edit-personal-panel").hide("slow");
+			$(".edit-personal-panel").show("slow");
+		});
+		$(".submit-details1 button").click(function(){
+			$(".non-edit-personal-panel").show("slow");
+			$(".edit-personal-panel").hide("slow");
+		});
+				
+		
+		$(".edit-professional-panel").hide();
+		$("#edit-professional-information a").click(function(){				
+			$(".non-edit-professional-panel").hide("slow");
+			$(".edit-professional-panel").show("slow");
+		});
+		$(".submit-details2 button").click(function(){
+			$(".non-edit-professional-panel").show("slow");
+			$(".edit-professional-panel").hide("slow");
+		});
+		
+		$(".edit-account-panel").hide();
+		$("#edit-account-information a").click(function(){				
+			$(".non-edit-account-panel").hide("slow");
+			$(".edit-account-panel").show("slow");
+		});
+		$(".submit-details3 button").click(function(){
+			$(".non-edit-account-panel").show("slow");
+			$(".edit-account-panel").hide("slow");
+		});
+		
+		$(".edit-education-panel").hide();
+		$("#edit-education-information a").click(function(){				
+			$(".non-edit-education-panel").hide("slow");
+			$(".edit-education-panel").show("slow");
+		});
+		$(".submit-details4 button").click(function(){
+			$(".non-edit-education-panel").show("slow");
+			$(".edit-education-panel").hide("slow");
+		});
+	});
+		
+	</script>
+        
+        <div id="page-wrapper" class="associate-details">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Associate Details</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+			<div class="panel-group associate-details-panel" id="accordion" role="tablist" aria-multiselectable="true">
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingOne">
+				  <div class="panel-title">
+					<div class="clearfix">
+						<h4><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="return false;" aria-expanded="true" aria-controls="collapseOne" id="headerTextOne">Personal Information</a></h4>
+					</div>
+				  </div>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+				  <div class="panel-body non-edit-personal-panel">
+					  <div class="row">
+						<div class="col-md-12 clearfix" id="edit-personal-information" ng-show="user.userName==associateDetails._id">
+							<div class="pull-right">
+								<a href="#">Edit</a>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal">
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Employee Id:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails._id}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Contact Number:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.phone}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Visa Type:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.visaType}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">H1B Eligible?:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static"><span ng-show="associateDetails.H1B_Eligible">Yes</span><span ng-show="!associateDetails.H1B_Eligible">No</span></p>
+								</div>
+							  </div>					  
+							</form>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal">
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Name:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.firstName +' '+ associateDetails.lastName}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Birthday:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.DOB | date : 'MM/dd/yyyy'}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Visa Status:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.visaStatus}}</p>
+								</div>
+							  </div>					  
+							</form>
+						</div>
+					  </div>					
+				  </div>
+				  
+				  <div class="panel-body edit-personal-panel">
+					  <div class="row">
+						<div class="col-md-6">
+							<form class="form-horizontal">
+							  <div class="form-group">
+								<label for="employeeId" class="col-sm-3 control-label">Employee Id:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails._id}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="contactNumber" class="col-sm-3 control-label">Contact Number:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="contactNumber" placeholder="Contact Number" ng-model="associateDetails.phone" value="{{associateDetails.phone}}">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="visaType" class="col-sm-3 control-label">Visa Type:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="visaType" placeholder="Visa Type" ng-model="associateDetails.visaType" value="{{associateDetails.visaType}}">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-3 control-label">H1B Eligible?:</label>
+								<div class="col-sm-7">
+								  <label class="radio-inline"><input type="radio" name="optradio" data-ng-model="associateDetails.H1B_Eligible" ng-value="true">Yes</label>
+								  <label class="radio-inline"><input type="radio" name="optradio" data-ng-model="associateDetails.H1B_Eligible" ng-value="false">No</label>
+								</div>
+							  </div>					  
+							</form>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal" data-ng-submit="save()">
+							  <div class="form-group">
+								<label for="firstname" class="col-sm-3 control-label">First Name:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="firstname" placeholder="Name" ng-model="associateDetails.firstName" value="{{associateDetails.firstName}}">
+								</div>
+								<div class="col-sm-7">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="lastname" class="col-sm-3 control-label">Last Name:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="lastname" placeholder="Name" ng-model="associateDetails.lastName" value="{{associateDetails.lastName}}">
+								</div>
+								<div class="col-sm-7">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="birthday" class="col-sm-3 control-label">Birthday:</label>
+								<div class="col-sm-7">
+										<div class="input-group date">
+											<input type="text" class="form-control"
+												data-ng-model="associateDetails.DOB"  value="{{associateDetails.DOB}}"><span
+												class="input-group-addon" ><i class="fa fa-calendar"></i></span>
+										</div>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="visaStatus" class="col-sm-3 control-label">Visa Status:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="visaStatus" placeholder="Visa Status" ng-model="associateDetails.visaStatus" value="{{associateDetails.visaStatus}}">
+								</div>
+							  </div>
+							  <div class="col-md-12 submit-details1">
+							<div class="clearfix pull-right">
+								<button class="btn btn-default" type="submit">Cancel</button>
+								<button class="btn btn-primary" type="submit">Submit</button>
+							</div>
+						</div>					  
+							</form>
+						</div>
+						
+					  </div>					  
+				  </div>
+				</div>
+				
+			  </div>
+			  
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingTwo">
+				  <div class="panel-title">
+					<div class="clearfix">
+						<h4><a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="return false;" aria-expanded="false" aria-controls="collapseTwo" id="headerTextTwo">Professional Information</a></h4>
+					</div>
+				  </div>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+				  <div class="panel-body non-edit-professional-panel">
+					  <div class="row">
+						<div class="col-md-12 clearfix" id="edit-professional-information" ng-show="user.userName==associateDetails._id">
+							<div class="pull-right">
+								<a href="#">Edit</a>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal">
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Card No:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.cardNumber}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Supervisor Id:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.supervisorID}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Status:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.status}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Pre-TCS Experience (in months):</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.experiencePreTCS}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Date of Joining QUALCOMM A/C:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.DOJQualcomm | date : 'MM/dd/yyyy'}}</p>
+								</div>
+							  </div>						  
+							</form>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal add-new-device-form">
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Designation:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.designation}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Office Extn:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.extension}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Role:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.role}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Date of Joining TCS:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.DOJTcs | date : 'MM/dd/yyyy'}}</p>
+								</div>
+							  </div>
+							   <div class="form-group">
+								<label class="col-sm-5 control-label">Total Exp (in Yrs):</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{experience}}</p>
+								</div>
+							  </div>							  
+							</form>
+						</div>
+					  </div>					
+				  </div>		  
+				 
+				  <div class="panel-body edit-professional-panel">
+					  <div class="row">
+						<div class="col-md-6">
+							<form class="form-horizontal">
+							  <div class="form-group">
+								<label for="cardNo" class="col-sm-3 control-label">Card No:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="cardNo" placeholder="Card No" ng-model="associateDetails.cardNumber" value="{{associateDetails.cardNumber}}">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="supervisorId" class="col-sm-3 control-label">Supervisor Id:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="supervisorId" placeholder="Supervisor Id" ng-model="associateDetails.supervisorID" value="{{associateDetails.supervisorID}}">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="status" class="col-sm-3 control-label">Status:</label>
+								<div class="col-sm-7">
+<!-- 								  <input type="text" class="form-control" id="status" placeholder="Status" ng-model="associateDetails.status" value="{{associateDetails.status}}"> -->
+  								  <select data-ng-model="associateDetails.status" id="role" class="form-control" tabindex="4" required>
+											<option value="">Select</option>
+											<option value="Offshore">Offshore</option>
+											<option value="Onsite">Onsite</option>
+											<option value="Released">Released</option>
+								  </select>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="preTcsExp" class="col-sm-3 control-label">Pre-TCS Experience (in months):</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="preTcsExp" ng-model="associateDetails.experiencePreTCS" value="{{associateDetails.experiencePreTCS}}">
+								</div>
+							  </div>
+							   <div class="form-group">
+								<label for="dojQual" class="col-sm-3 control-label">Date of Joining QUALCOMM A/C:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="dojQual" ng-model="associateDetails.DOJQualcomm" value="{{associateDetails.DOJQualcomm}}">
+								</div>
+							  </div>	
+							</form>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal" data-ng-submit="save()">
+							  <div class="form-group">
+								<label for="designation" class="col-sm-3 control-label">Designation:</label>
+								<div class="col-sm-7">
+										<select data-ng-model="associateDetails.designation" id="designation" class="form-control" tabindex="4" required>
+											<option value="">Select</option>
+											<option value="ASE(T)">ASE(T)</option>
+											<option value="ASE">ASE</option>
+											<option value="SE">SE</option>
+											<option value="ITA">ITA</option>
+											<option value="AST">AST</option>
+											<option value="ASOC">ASOC</option>
+											<option value="CON">CON</option>
+											<option value="SCON">SCON</option>
+											<option value="PCON">PCON</option>
+										</select>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="extension" class="col-sm-3 control-label">Office Extn:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="extension" placeholder="Extension" ng-model="associateDetails.extension" value="{{associateDetails.extension}}">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="role" class="col-sm-3 control-label">Role:</label>
+								<div class="col-sm-7">
+<!-- 								  <input type="text" class="form-control" id="role" placeholder="Role" ng-model="associateDetails.role" value="{{associateDetails.role}}"> -->
+								  <select data-ng-model="associateDetails.role" id="role" class="form-control" tabindex="4" required>
+											<option value="">Select</option>
+											<option value="GL">GL</option>
+											<option value="PL">PL</option>
+											<option value="PM">PM</option>
+											<option value="TM">TM</option>
+											<option value="TL">TL</option>
+											<option value="TW">TW</option>
+								  </select>
+
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="dojTcs" class="col-sm-3 control-label">Date of Joining TCS:</label>
+								<div class="col-sm-7">
+								<div class="input-group date">
+											<input type="text" class="form-control" id="dojTcs" ng-model="associateDetails.DOJTcs" value="{{associateDetails.DOJTcs}}"><span
+												class="input-group-addon" ><i class="fa fa-calendar"></i></span>
+										</div>
+								  
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-3 control-label">Total Exp (in Yrs):</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{experience}}</p>
+								</div>
+							  </div>	
+							  <div class="col-md-12 submit-details2">
+							<div class="clearfix pull-right">
+								<button class="btn btn-default" type="submit">Cancel</button>
+								<button class="btn btn-primary" type="submit">Submit</button>
+							</div>
+						</div>				  
+							</form>
+						</div>
+						
+					  </div>					
+				  </div>
+				
+				</div>
+				
+			  </div>
+			  
+			   <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingThree">
+				  <div class="panel-title">
+					<div class="clearfix">
+						<h4><a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" onclick="return false;" aria-expanded="true" aria-controls="collapseThree" id="headerTextOne">Account Information</a></h4>
+					</div>
+				  </div>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+				  <div class="panel-body non-edit-account-panel">
+					  <div class="row">
+						<div class="col-md-12 clearfix" id="edit-account-information" ng-show="user.userName==associateDetails._id">
+							<div class="pull-right">
+								<a href="#">Edit</a>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal">
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">WON No:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.wonNo}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Qualcomm Email Id:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.qualEmail}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Current Asset No:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.assetID}}</p>
+								</div>
+							  </div>
+							</form>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal">
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Current Cubicle:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.cubicleNumber}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Current Machine IP:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.ipAddress}}</p>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">ODC:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.ODC}}</p>
+								</div>
+							  </div>					  
+							</form>
+						</div>
+					  </div>					
+				  </div>
+				  
+				  <div class="panel-body edit-account-panel">
+					  <div class="row">
+						<div class="col-md-6">
+							<form class="form-horizontal">
+							  <div class="form-group">
+								<label for="wonNo" class="col-sm-3 control-label">WON No:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="wonNo" placeholder="WON Number" ng-model="associateDetails.wonNo" value="{{associateDetails.wonNo}}">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="qualEmailAddress" class="col-sm-3 control-label">Qualcomm Email Id:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="qualEmailAddress" placeholder="Qualcomm Email Id" ng-model="associateDetails.qualEmail" value="{{associateDetails.qualEmail}}">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="currentAsset" class="col-sm-3 control-label">Current Asset No:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="currentAsset" placeholder="Current Asset No." ng-model="associateDetails.assetID" value="{{associateDetails.assetID}}">
+								</div>
+							  </div>
+							</form>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal" data-ng-submit="save()">
+							  <div class="form-group">
+								<label for="cubicleNo" class="col-sm-3 control-label">Current Cubicle:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="cubicleNo" placeholder="Cubicle" ng-model="associateDetails.cubicleNumber" value="{{associateDetails.cubicleNumber}}">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="ipAddress" class="col-sm-3 control-label">Current Machine IP:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="ipAddress" placeholder="IP Address" ng-model="associateDetails.ipAddress" value="{{associateDetails.ipAddress}}">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="ODC" class="col-sm-3 control-label">ODC:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="ODC" placeholder="Visa Status" ng-model="associateDetails.ODC" value="{{associateDetails.ODC}}">
+								</div>
+							  </div>
+							  <div class="col-md-12 submit-details3">
+								<div class="clearfix pull-right">
+									<button class="btn btn-default" type="submit">Cancel</button>
+									<button class="btn btn-primary" type="submit">Submit</button>
+								</div>
+							  </div>					  
+							</form>
+						</div>
+					  </div>					  
+				  </div>
+				</div>
+				
+			  </div>
+			  
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingFour">
+				  <div class="panel-title">
+					<div class="clearfix">
+						<h4><a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" onclick="return false;" aria-expanded="true" aria-controls="collapseFour">Education Information</a></h4>
+					</div>
+				  </div>
+				</div>
+				<div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+				  <div class="panel-body non-edit-education-panel">
+					  <div class="row">
+						<div class="col-md-12 clearfix" id="edit-education-information" ng-show="user.userName==associateDetails._id">
+							<div class="pull-right">
+								<a href="#">Edit</a>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal">
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Highest Qualification:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.highestQual}}</p>
+								</div>
+							  </div>
+							</form>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal">
+							  <div class="form-group">
+								<label class="col-sm-5 control-label">Specialization:</label>
+								<div class="col-sm-7">
+								  <p class="form-control-static">{{associateDetails.specialization}}</p>
+								</div>
+							  </div>
+							</form>
+						</div>
+					  </div>					
+				  </div>
+				  
+				  <div class="panel-body edit-education-panel">
+					  <div class="row">
+						<div class="col-md-6">
+							<form class="form-horizontal">
+							  <div class="form-group">
+								<label for="highestQual" class="col-sm-3 control-label">Highest Qualification:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="highestQual" placeholder="Highest Qualification" ng-model="associateDetails.highestQual" value="{{associateDetails.highestQual}}">
+								</div>
+							  </div>
+							</form>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal" data-ng-submit="save()">
+							  <div class="form-group">
+								<label for="specialization" class="col-sm-3 control-label">Specialization:</label>
+								<div class="col-sm-7">
+								  <input type="text" class="form-control" id="specialization" placeholder="Specialization" ng-model="associateDetails.specialization" value="{{associateDetails.specialization}}">
+								</div>
+							  </div>
+							  <div class="col-md-12 submit-details4">
+								<div class="clearfix pull-right">
+									<button class="btn btn-default" type="submit">Cancel</button>
+									<button class="btn btn-primary" type="submit">Submit</button>
+								</div>
+							  </div>					  
+							</form>
+						</div>
+					  </div>					  
+				  </div>
+				</div>
+			  </div>
+			</div>
+        </div>
+        <!-- /#page-wrapper -->

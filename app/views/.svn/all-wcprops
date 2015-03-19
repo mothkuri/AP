@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/TCSRepo/!svn/ver/116466/AssociatePortal(MEAN)/app/views
+END
+dialog.ejs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/TCSRepo/!svn/ver/111526/AssociatePortal(MEAN)/app/views/dialog.ejs
+END
+findUser.ejs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/TCSRepo/!svn/ver/109644/AssociatePortal(MEAN)/app/views/findUser.ejs
+END
+editUser.ejs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/TCSRepo/!svn/ver/109644/AssociatePortal(MEAN)/app/views/editUser.ejs
+END
+userDetails.ejs
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/TCSRepo/!svn/ver/109644/AssociatePortal(MEAN)/app/views/userDetails.ejs
+END
+passwordUpdate.ejs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/TCSRepo/!svn/ver/116466/AssociatePortal(MEAN)/app/views/passwordUpdate.ejs
+END
+index.ejs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/TCSRepo/!svn/ver/109644/AssociatePortal(MEAN)/app/views/index.ejs
+END
+loggedIn.ejs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/TCSRepo/!svn/ver/116466/AssociatePortal(MEAN)/app/views/loggedIn.ejs
+END
+login.ejs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/TCSRepo/!svn/ver/111528/AssociatePortal(MEAN)/app/views/login.ejs
+END
+newUser.ejs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/TCSRepo/!svn/ver/109644/AssociatePortal(MEAN)/app/views/newUser.ejs
+END
+error.ejs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/TCSRepo/!svn/ver/109644/AssociatePortal(MEAN)/app/views/error.ejs
+END
+response.ejs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/TCSRepo/!svn/ver/116466/AssociatePortal(MEAN)/app/views/response.ejs
+END
+error401.ejs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/TCSRepo/!svn/ver/117229/AssociatePortal(MEAN)/app/views/error401.ejs
+END

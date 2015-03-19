@@ -1,0 +1,129 @@
+<style>
+.button {
+    -moz-appearance: button;
+    /* Firefox */
+    -webkit-appearance: button;
+    /* Safari and Chrome */
+    padding: 10px;
+    margin: 10px;
+    width: 70px;
+}
+.drop-box {
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    /* width: 200px;
+    height: 65px; */
+    text-align: center;
+    padding-top: 25px;
+    margin: 10px;
+    min-height:100px;
+}
+.dragover {
+    border: 5px dashed blue;
+}
+</style>
+<div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Add New Device</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            
+            <div class="row">
+                <div class="col-lg-8">
+					<form class="form-horizontal add-new-device-form" id="assetForm">
+					  <div class="form-group">
+						<label for="deviceName" class="col-sm-2 control-label">Device Name</label>
+						<div class="col-sm-10">
+						  <input type="text" class="form-control" id="deviceName" placeholder="Enter Device Name" data-ng-model="asset.name">
+						</div>
+					  </div>
+					  <div class="form-group">
+						<label for="deviceType" class="col-sm-2 control-label">Device Type</label>
+						<div class="col-sm-10">
+						<select class="form-control" id="deviceType" data-ng-model="asset.type">
+						<option value=''>Select</option>
+						<option value='Mobile'>Mobile</option>
+						<option value='Tablet'>Tablet</option>
+						<option value='Other'>Other</option>
+						</select>
+						</div>
+					  </div>	
+					  <div class="form-group">
+						<label for="description" class="col-sm-2 control-label">Description</label>
+						<div class="col-sm-10">
+						  <input type="text" class="form-control" id="description" placeholder="Enter Description" data-ng-model="asset.description">
+						</div>
+					  </div>
+					  <div class="form-group">
+						<label for="assetID" class="col-sm-2 control-label">Asset ID</label>
+						<div class="col-sm-10">
+						  <input type="text" class="form-control" id="assetID" placeholder="Enter Asset ID" data-ng-model="asset.assetId">
+						</div>
+					  </div>
+					  
+					  <div class="form-group">
+						<label for="owner" class="col-sm-2 control-label">Owner</label>
+						<div class="col-sm-10">
+						  <input type="text" class="form-control" id="owner" placeholder="Enter owner's employee Id" ng-keypress="userAutoComplete($event)" data-ng-model="asset.ownerId">
+						</div>
+					  </div>
+					  
+					  
+					  <div class="form-group">
+						<div class="clearfix">
+							<button type="submit" class="btn btn-primary" data-ng-click="addAsset();">Submit</button>
+							<button type="submit" class="btn btn-default" data-ng-click="resetForm();">Reset</button>
+						</div>						
+					  </div>
+					</form>
+				</div>
+                <!-- /.col-lg-8 -->
+		<div class="col-lg-4">
+			<img class="device-image img-responsive"
+				src="../uploads/{{asset.imgName}}" alt="asset image" data-ng-show="asset.imgName">
+			<img class="device-image img-responsive"
+				src="../uploads/default.gif" alt="asset image" data-ng-show="!asset.imgName">
+			<div>
+				<div class="btn btn-primary center-block" data-ng-file-select
+					data-ng-model="files" data-ng-multiple="multiple">Upload
+					Image</div>
+				<div data-ng-file-drop data-ng-file-select data-ng-model="files"
+					class="drop-box center-block" data-drag-over-class="dragover"
+					data-ng-multiple="true" data-allow-dir="true" data-accept="image/*">Drop
+					image here or click to upload</div>
+				<div data-ng-no-file-drop>File Drag/Drop is not supported for
+					this browser</div>
+				<ul>
+					<li ng-repeat="f in files" style="font: smaller">{{f.name}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+				<!-- /.col-lg-4 --> 
+            </div>
+            <!-- /.row -->
+            <!-- Modal HTML -->
+	<div id="myModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">X</button>
+					<h4 class="modal-title">Error!</h4>
+				</div>
+				<div class="modal-body">
+					<p class="msg"></p>
+					<!--             <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+ -->
+				</div>
+				<div class="modal-footer">
+					<!--  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+					<button type="button" class="btn btn-primary" onclick="closeIndependant()">Ok</button>
+				</div>
+			</div>
+		</div>
+	</div>
+        <!-- /#page-wrapper -->

@@ -1,0 +1,21 @@
+<div class="jumbotron">
+	<h1 class="text-center">Associate Details</h1>
+	<table>
+	<tr><td>Employee Id: </td><td>{{associateDetails._id}}</td></tr>
+	<tr><td>Name: </td><td><a href="#" editable-text="associateDetails.name">{{ associateDetails.name || 'empty' }}</a></td></tr>
+	<tr><td>Designation: </td><td>{{associateDetails.designation}}</td></tr>
+	<tr><td>Date Of Joining: </td><td>{{associateDetails.DOJ}}</td></tr>
+	<tr><td>Program: </td><td>{{associateDetails.program}}</td></tr>
+	</table>
+	
+	<span ng-hide="editing" ng-click="editing = true">{{associateDetails.name}} | {{associateDetails._id}}</span>
+ 	<form ng-show="editing" ng-submit="editing = false; save(associateDetails.name)">
+    <label>Name:</label>
+    <input type="text" ng-model="associateDetails.name" placeholder="Name" ng-required/>
+    <label>Date:</label>
+    <input type="number" ng-model="associateDetails._id" placeholder="Date" ng-required/>
+    <br/>
+    <button class="btn" type="submit">Save</button>
+   </form>
+
+</div>

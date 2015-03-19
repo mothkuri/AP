@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit User - <%= user._id %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Create User</h1>
+    <form method='post' action='/editUser'>
+    	<table>
+    		<tr>
+    			<td>
+    				ID:
+    			</td>
+    			<td>
+    				<input type="text" name="_id" value="<%= user._id %>">
+    			</td>
+    		</tr>
+
+			<tr>
+    			<td>
+    				Name:
+    			</td>
+    			<td>
+    				<input type="text" name="name" value="<%= user.name %>">
+    			</td>
+    		</tr>
+    		<tr>
+    			<td>
+    				DOJ:
+    			</td>
+    			<td>
+    				<input type="date" name="DOJ" value="<%= user.DOJ %>">
+    			</td>
+    		</tr>
+
+
+    		<tr>
+    			<td>
+    				<input type="submit">
+    			</td>
+    		</tr>
+    	</table>	
+    </form>
+  </body>
+</html>

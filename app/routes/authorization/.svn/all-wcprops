@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/TCSRepo/!svn/ver/116457/AssociatePortal(MEAN)/app/routes/authorization
+END
+Client.js
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/TCSRepo/!svn/ver/111019/AssociatePortal(MEAN)/app/routes/authorization/Client.js
+END
+auth.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/TCSRepo/!svn/ver/117716/AssociatePortal(MEAN)/app/routes/authorization/auth.js
+END
+oAuth2.js
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/TCSRepo/!svn/ver/111519/AssociatePortal(MEAN)/app/routes/authorization/oAuth2.js
+END

@@ -1,0 +1,222 @@
+<style>
+.button {
+	-moz-appearance: button;
+	/* Firefox */
+	-webkit-appearance: button;
+	/* Safari and Chrome */
+	padding: 10px;
+	margin: 10px;
+	width: 70px;
+}
+
+.drop-box {
+	background: #F8F8F8;
+	border: 5px dashed #DDD;
+	/* width: 200px;
+    height: 65px; */
+	text-align: center;
+	padding-top: 25px;
+	margin: 10px;
+	min-height: 100px;
+}
+
+.dragover {
+	border: 5px dashed blue;
+}
+</style>
+<div id="page-wrapper">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">Asset Details</h1>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+
+	<div class="row">
+		<div class="col-lg-8">
+			<div id="static">
+
+				<p class="text-right" data-ng-show="user.isAdmin">
+					<a href="#." onclick="toggleEdit();return false;">Edit</a>
+				</p>
+
+				<table class="table table-hover">
+					<tr>
+						<td>Device Name</td>
+						<td>{{asset.name}}</td>
+					</tr>
+
+
+					<tr>
+						<td>Device Type</td>
+						<td>{{asset.type}}</td>
+					</tr>
+
+
+					<tr>
+						<td>Description</td>
+						<td>{{asset.description}}</td>
+					</tr>
+
+
+					<tr>
+						<td>Asset ID</td>
+						<td>{{asset.assetId}}</td>
+					</tr>
+
+
+					<tr>
+						<td>Owner</td>
+						<td>{{asset.ownerId}}</td>
+					</tr>
+				</table>
+			</div>
+
+
+			<form class="form-horizontal add-new-device-form" id="assetForm"
+				style="display: none;">
+				<div class="form-group">
+					<label for="deviceName" class="col-sm-2 control-label">Device
+						Name</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="deviceName"
+							placeholder="Enter Device Name" data-ng-model="asset.name">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="deviceType" class="col-sm-2 control-label">Device
+						Type</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="deviceType"
+							placeholder="Enter Device Type" data-ng-model="asset.type">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="description" class="col-sm-2 control-label">Description</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="description"
+							placeholder="Enter Description" data-ng-model="asset.description">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="assetID" class="col-sm-2 control-label">Asset
+						ID</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="assetID"
+							placeholder="Enter Asset ID" data-ng-model="asset.assetId">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="owner" class="col-sm-2 control-label">Owner</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="owner"
+							placeholder="Enter owner's employee Id"
+							ng-keypress="userAutoComplete($event)"
+							data-ng-model="asset.ownerId" autoComplete='off'>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="clearfix">
+						<button type="submit" class="btn btn-primary"
+							data-ng-click="updateAsset();">Submit</button>
+						<button type="submit" class="btn btn-default"
+							onclick="toggleEdit()">Cancel</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!-- /.col-lg-8 -->
+		<div class="col-lg-4">
+			<img class="device-image img-responsive"
+				src="../uploads/{{asset.imgName}}" alt="asset image"
+				data-ng-show="asset.imgName"> <img
+				class="device-image img-responsive" src="../uploads/default.gif"
+				alt="asset image" data-ng-show="!asset.imgName">
+			<div class="form-group">
+				<div class="clearfix"
+					data-ng-show="!asset.isLocked && user.userName!=asset.ownerId">
+					<button type="submit" class="btn btn-primary center-block"
+						data-ng-click="request();">Request</button>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="clearfix text-center"
+					data-ng-show="asset.isLocked && asset.requestStatus=='Pending'">
+					Requested by <a href="associateListing/{{asset.lockedBy}}">{{asset.lockedBy}}</a>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="clearfix text-center"
+					data-ng-show="asset.isLocked && asset.requestStatus=='Approved'">
+					Asset is with <a href="associateListing/{{asset.lockedBy}}">{{asset.lockedBy}}</a>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="clearfix text-center"
+					data-ng-show="(user.userName==asset.ownerId) && asset.isLocked && asset.requestStatus!='Approved'">
+					<button type="submit" class="btn btn-primary center"
+						data-ng-click="approve();">Approve</button>
+					<button type="submit" class="btn btn-warning center"
+						data-ng-click="deny();">Deny</button>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="clearfix"
+					data-ng-show="(user.userName==asset.ownerId) && asset.isLocked && asset.requestStatus=='Approved'">
+					<button type="submit" class="btn btn-primary center-block"
+						data-ng-click="returned();">Returned</button>
+				</div>
+			</div>
+	
+
+
+
+		<div class="edit" style="display: none">
+			<div class="btn btn-primary center-block" data-ng-file-select
+				data-ng-model="files" data-ng-multiple="multiple">Upload Image</div>
+			<div data-ng-file-drop data-ng-file-select data-ng-model="files"
+				class="drop-box center-block" data-drag-over-class="dragover"
+				data-ng-multiple="true" data-allow-dir="true" data-accept="image/*">Drop
+				image here or click to upload</div>
+			<div data-ng-no-file-drop>File Drag/Drop is not supported for
+				this browser</div>
+			<ul>
+				<li ng-repeat="f in files" style="font: smaller">{{f.name}}</li>
+			</ul>
+		</div>
+			</div>
+	</div>
+	<!-- /.col-lg-4 -->
+</div>
+<!-- /.row -->
+</div>
+
+<!-- Modal HTML -->
+<div id="myModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">X</button>
+				<h4 class="modal-title">Error!</h4>
+			</div>
+			<div class="modal-body">
+				<p class="msg"></p>
+				<!--             <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+ -->
+			</div>
+			<div class="modal-footer">
+				<!--  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+				<button type="button" class="btn btn-primary dependant"
+					onclick="closeModal()">Ok</button>
+				<button type="button" class="btn btn-primary independant"
+					onclick="closeIndependant()">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /#page-wrapper -->

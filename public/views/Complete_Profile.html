@@ -1,0 +1,569 @@
+<div id="page-wrapper" class="associate-details">
+	<div class="row">
+		<div class="alert alert-danger" role="alert">
+			<span class="fa fa-warning" aria-hidden="true"></span>
+			<span class="sr-only">Error:</span> Please complete Your Profile before accessing any resources of the Portal.
+		</div>
+		<div class="col-lg-12">
+			<h1 class="page-header">Profile</h1>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+	<div class="panel-group associate-details-panel" id="accordion"
+		role="tablist" aria-multiselectable="true">
+		<div class="panel panel-default" id="panel1">
+			<div class="panel-heading" role="tab" id="headingOne">
+				<div class="panel-title">
+					<div class="clearfix">
+						<h4>
+							<a data-toggle="collapse" data-parent="#accordion" href="#"
+								onclick="return false;" aria-expanded="true"
+								aria-controls="collapseOne" id="headerTextOne">Personal
+								Information</a>
+						</h4>
+					</div>
+				</div>
+			</div>
+			<div id="collapseOne" class="panel-collapse collapse in"
+				role="tabpanel" aria-labelledby="headingOne">
+
+				<div class="panel-body edit-personal-panel">
+					<div class="row">
+						<div class="col-md-6">
+							<form class="form-horizontal">
+								<div class="form-group">
+									<label for="employeeId" class="col-sm-3 control-label">Employee
+										Id</label>
+									<div class="col-sm-7">
+										<p class="form-control-static">{{user.userName}}</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="contactNumber" class="col-sm-3 control-label">Contact
+										Number</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="contactNumber"
+											placeholder="Contact Number" ng-model="user.phone"
+											value="{{user.phone}}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="visaType" class="col-sm-3 control-label">Visa
+										Type</label>
+									<div class="col-sm-7">
+										<select class="form-control" id="visaType"
+											ng-model="user.visaType" value="{{user.visaType}}">
+											<option value="">Select</option>
+											<option value="H1B">H1B</option>
+											<option value="L1B">L1B</option>
+											<option value="B1">B1</option>
+											<option value="L1A">L1A</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Email</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="visaType"
+											placeholder="Visa Type" ng-model="user.email"
+											value="{{user.email}}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label">H1B Eligible?</label>
+									<div class="col-sm-7">
+										<label class="radio-inline"><input type="radio"
+											name="optradio" data-ng-model="user.H1B_Eligible" value=true>Yes</label>
+										<label class="radio-inline"><input type="radio"
+											name="optradio" data-ng-model="user.H1B_Eligible" value=false>No</label>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal" data-ng-submit="save()">
+								<div class="form-group">
+									<label for="firstname" class="col-sm-3 control-label">First
+										Name</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="firstname"
+											placeholder="Name" ng-model="user.firstName"
+											value="{{user.firstName}}">
+									</div>
+									<div class="col-sm-7"></div>
+								</div>
+								<div class="form-group">
+									<label for="lastname" class="col-sm-3 control-label">Last
+										Name</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="lastname"
+											placeholder="Name" ng-model="user.lastName"
+											value="{{user.lastName}}">
+									</div>
+									<div class="col-sm-7"></div>
+								</div>
+								<div class="form-group">
+									<label for="birthday" class="col-sm-3 control-label">Birthday</label>
+									<div class="col-sm-7">
+										<div class="input-group date">
+											<input type="text" class="form-control"
+												data-ng-model="user.DOB"><span
+												class="input-group-addon"><i class="fa fa-calendar"></i></span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="visaStatus" class="col-sm-3 control-label">Visa
+										Status</label>
+									<div class="col-sm-7">
+										<select class="form-control" id="visaStatus"
+											ng-model="user.visaStatus" value="{{user.visaStatus}}">
+											<option value="">Select</option>
+											<option value="Eligible">Eligible</option>
+											<option value="Applied">Applied</option>
+											<option value="Granted">Granted</option>
+											<option value="Expired">Expired</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-12 submit-details1">
+									<div class="clearfix pull-right">
+										<!-- open2 unique class name -->
+										<button class="btn btn-primary open2" type="button">
+											Next <span class="fa fa-arrow-right"></span>
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="panel panel-default" id="panel2">
+			<div class="panel-heading" role="tab" id="headingTwo">
+				<div class="panel-title">
+					<div class="clearfix">
+						<h4>
+							<a data-toggle="collapse" data-parent="#accordion" href="#"
+								onclick="return false;" aria-expanded="false"
+								aria-controls="collapseTwo" id="headerTextTwo">Professional
+								Information</a>
+						</h4>
+					</div>
+				</div>
+			</div>
+			<div id="collapseTwo" class="panel-collapse collapse in"
+				role="tabpanel" aria-labelledby="headingTwo">
+
+				<div class="panel-body edit-professional-panel">
+					<div class="row">
+						<div class="col-md-6">
+							<form class="form-horizontal">
+								<div class="form-group">
+									<label for="cardNo" class="col-sm-3 control-label">Card
+										No:</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="cardNo"
+											placeholder="Card No" ng-model="user.cardNumber"
+											value="{{user.cardNumber}}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="supervisorId" class="col-sm-3 control-label">Supervisor
+										Id:</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="supervisorId"
+											placeholder="Supervisor Id" ng-model="user.supervisorID"
+											value="{{user.supervisorID}}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="status" class="col-sm-3 control-label">Status:</label>
+									<div class="col-sm-7">
+										<!-- 								  <input type="text" class="form-control" id="status" placeholder="Status" ng-model="user.status" value="{{user.status}}"> -->
+										<select data-ng-model="user.status" id="role"
+											class="form-control" tabindex="4">
+											<option value="">Select</option>
+											<option value="Offshore">Offshore</option>
+											<option value="Onsite">Onsite</option>
+											<option value="Released">Released</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="preTcsExp" class="col-sm-3 control-label">Pre-TCS
+										Experience (in months):</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="preTcsExp"
+											ng-model="user.experiencePreTCS"
+											value="{{user.experiencePreTCS}}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="dojQual" class="col-sm-3 control-label">Date
+										of Joining QUALCOMM A/C:</label>
+									<div class="col-sm-7">
+										<div class="input-group date">
+											<input type="text" class="form-control"
+												data-ng-model="user.DOJQualcomm"><span
+												class="input-group-addon"><i class="fa fa-calendar"></i></span>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal" data-ng-submit="save()">
+								<div class="form-group">
+									<label for="designation" class="col-sm-3 control-label">Designation:</label>
+									<div class="col-sm-7">
+										<select data-ng-model="user.designation" id="designation"
+											class="form-control" tabindex="4" required>
+											<option value="">Select</option>
+											<option value="ASE(T)">ASE(T)</option>
+											<option value="ASE">ASE</option>
+											<option value="SE">SE</option>
+											<option value="ITA">ITA</option>
+											<option value="AST">AST</option>
+											<option value="ASOC">ASOC</option>
+											<option value="CON">CON</option>
+											<option value="SCON">SCON</option>
+											<option value="PCON">PCON</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="extension" class="col-sm-3 control-label">Office
+										Extn:</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="extension"
+											placeholder="Extension" ng-model="user.extension"
+											value="{{user.extension}}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="role" class="col-sm-3 control-label">Role:</label>
+									<div class="col-sm-7">
+										<!-- 								  <input type="text" class="form-control" id="role" placeholder="Role" ng-model="user.role" value="{{user.role}}"> -->
+										<select data-ng-model="user.role" id="role"
+											class="form-control" tabindex="4" required>
+											<option value="">Select</option>
+											<option value="GL">GL</option>
+											<option value="PL">PL</option>
+											<option value="PM">PM</option>
+											<option value="TM">TM</option>
+											<option value="TL">TL</option>
+											<option value="TW">TW</option>
+										</select>
+
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="dojTcs" class="col-sm-3 control-label">Date
+										of Joining TCS:</label>
+									<div class="col-sm-7">
+										<div class="input-group date">
+											<input type="text" class="form-control"
+												data-ng-model="user.DOJTcs"><span
+												class="input-group-addon"><i class="fa fa-calendar"></i></span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Total Exp (in
+										Yrs):</label>
+									<div class="col-sm-7">
+										<p class="form-control-static">{{date - user.DOJTcs}}</p>
+									</div>
+								</div>
+
+							</form>
+						</div>
+						<div class="col-md-12 submit-details2">
+							<div class="clearfix pull-left">
+								<button class="btn btn-warning back1" type="button">
+									<span class="fa fa-arrow-left"></span> Back
+								</button>
+							</div>
+							<div class="clearfix pull-right">
+								<!-- open2 unique class name -->
+								<button class="btn btn-primary open3" type="button">
+									Next <span class="fa fa-arrow-right"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="panel panel-default" id="panel3">
+			<div class="panel-heading" role="tab" id="headingThree">
+				<div class="panel-title">
+					<div class="clearfix">
+						<h4>
+							<a data-toggle="collapse" data-parent="#accordion" href="#"
+								onclick="return false;" aria-expanded="true"
+								aria-controls="collapseThree" id="headerTextOne">Account
+								Information</a>
+						</h4>
+					</div>
+				</div>
+			</div>
+			<div id="collapseThree" class="panel-collapse collapse in"
+				role="tabpanel" aria-labelledby="headingThree">
+
+				<div class="panel-body edit-account-panel">
+					<div class="row">
+						<div class="col-md-6">
+							<form class="form-horizontal">
+								<div class="form-group">
+									<label for="wonNo" class="col-sm-3 control-label">WON
+										No:</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="wonNo"
+											placeholder="WON Number" ng-model="user.wonNo"
+											value="{{user.wonNo}}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="qualEmailAddress" class="col-sm-3 control-label">Qualcomm
+										Email Id:</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="qualEmailAddress"
+											placeholder="Qualcomm Email Id" ng-model="user.qualEmail"
+											value="{{user.qualEmail}}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="currentAsset" class="col-sm-3 control-label">Current
+										Asset No:</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="currentAsset"
+											placeholder="Current Asset No." ng-model="user.assetID"
+											value="{{user.assetID}}">
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal" data-ng-submit="save()">
+								<div class="form-group">
+									<label for="cubicleNo" class="col-sm-3 control-label">Current
+										Cubicle:</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="cubicleNo"
+											placeholder="Cubicle" ng-model="user.cubicleNumber"
+											value="{{user.cubicleNumber}}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="ipAddress" class="col-sm-3 control-label">Current
+										Machine IP:</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="ipAddress"
+											placeholder="IP Address" ng-model="user.ipAddress"
+											value="{{user.ipAddress}}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="ODC" class="col-sm-3 control-label">ODC:</label>
+									<div class="col-sm-7">
+										<select class="form-control" id="ODC"
+											placeholder="Visa Status" ng-model="user.ODC"
+											value="{{user.ODC}}">
+											<option value="">Select</option>
+											<option value="2F 1">II Floor - ODC 1</option>
+											<option value="2F 4">II Floor - ODC 4</option>
+											<option value="2F 5">II Floor - ODC 5</option>
+											<option value="3F 2">III Floor - ODC 2</option>
+											<option value="3F 3">III Floor - ODC 3</option>
+										</select>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-md-12 submit-details2">
+							<div class="clearfix pull-left">
+								<button class="btn btn-warning back2" type="button">
+									<span class="fa fa-arrow-left"></span> Back
+								</button>
+							</div>
+							<div class="clearfix pull-right">
+								<!-- open2 unique class name -->
+								<button class="btn btn-primary open4" type="button">
+									Next <span class="fa fa-arrow-right"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="panel panel-default" id="panel4">
+			<div class="panel-heading" role="tab" id="headingFour">
+				<div class="panel-title">
+					<div class="clearfix">
+						<h4>
+							<a data-toggle="collapse" data-parent="#accordion" href="#"
+								onclick="return false;" aria-expanded="true"
+								aria-controls="collapseFour">Education Information</a>
+						</h4>
+					</div>
+				</div>
+			</div>
+			<div id="collapseFour" class="panel-collapse collapse in"
+				role="tabpanel" aria-labelledby="headingFour">
+
+				<div class="panel-body edit-education-panel">
+					<div class="row">
+						<div class="col-md-6">
+							<form class="form-horizontal">
+								<div class="form-group">
+									<label for="highestQual" class="col-sm-3 control-label">Highest
+										Qualification:</label>
+									<div class="col-sm-7">
+										<select class="form-control" id="highestQual"
+											placeholder="Highest Qualification"
+											ng-model="user.highestQual" value="{{user.highestQual}}">
+											<option value="">Select</option>
+											<option value="BA/BSc">BA/BSc</option>
+											<option value="BBA">BBA</option>
+											<option value="BCA">BCA</option>
+											<option value="BE/B.Tech">BE/B.Tech</option>
+											<option value="MA/MSc">MA/MSc</option>
+											<option value="MCA">MCA</option>
+											<option value="ME/M.Tech">ME/M.Tech</option>
+											<option value="MBA">MBA</option>
+										</select>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-md-6">
+							<form class="form-horizontal" data-ng-submit="save()">
+								<div class="form-group">
+									<label for="specialization" class="col-sm-3 control-label">Specialization:</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="specialization"
+											placeholder="Specialization" ng-model="user.specialization"
+											value="{{user.specialization}}">
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-md-12 submit-details2">
+							<div class="clearfix pull-left">
+								<button class="btn btn-warning back3" type="button">
+									<span class="fa fa-arrow-left"></span> Back
+								</button>
+							</div>
+							<div class="clearfix pull-right">
+								<!-- open2 unique class name -->
+								<button class="btn btn-primary submit" type="button"
+									data-ng-click="saveAssociate()">
+									Submit <span class="fa fa-arrow-right"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /#page-wrapper -->
+
+
+<script>
+	$(document).ready(function() {
+		// 		$('#collapseOne').collapse();
+		// 		$('#collapseTwo').collapse();
+		// 		$('#collapseThree').collapse();
+		// 		$('#collapseFour').collapse();
+
+		$('#panel2').hide();
+		$('#panel3').hide();
+		$('#panel4').hide(); 
+
+		$('.open2').click(function() {
+			$('[type="text"],select').removeClass('error');
+			var err = 0;
+			$('#panel1').find('[type="text"],select').each(function(key, val) {
+				if ($(val).val() == '') {
+					err++;
+					$(val).addClass('error');
+				}
+			});
+			var contact = $('#contactNumber');
+			if (isNaN(contact.val()) || contact.val().length != 10) {
+				contact.addClass('error');
+				err++;
+			}
+			if (err == 0) {
+				$('#panel1').hide('slow');
+				$('#panel2').show('slow');
+			}
+
+		});
+
+		$('.open3').click(function() {
+			$('[type="text"],select').removeClass('error');
+			var err = 0;
+			$('#panel2').find('[type="text"],select').each(function(key, val) {
+				if ($(val).val() == '') {
+					err++;
+					$(val).addClass('error');
+				}
+			});
+			if (err == 0) {
+				$('#panel2').hide('slow');
+				$('#panel3').show('slow');
+			}
+		});
+
+		$('.open4').click(function() {
+			$('[type="text"],select').removeClass('error');
+			var err = 0;
+			if ($('#ODC').val() == '') {
+				err++;
+				$('#ODC').addClass('error');
+			}
+
+			if (err == 0) {
+				$('#panel3').hide('slow');
+				$('#panel4').show('slow');
+			}
+
+		});
+
+		$('.back1').click(function() {
+			$('#panel2').hide('slow');
+			$('#panel1').show('slow');
+		});
+
+		$('.back2').click(function() {
+			$('#panel3').hide('slow');
+			$('#panel2').show('slow');
+		});
+
+		$('.back3').click(function() {
+			$('#panel4').hide('slow');
+			$('#panel3').show('slow');
+		});
+	});
+
+	$('.input-group.date').datepicker({
+		autoclose : true,
+		format : "mm-dd-yyyy"
+	});
+</script>

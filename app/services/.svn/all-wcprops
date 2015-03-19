@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/TCSRepo/!svn/ver/116547/AssociatePortal(MEAN)/app/services
+END
+CryptoServices.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/TCSRepo/!svn/ver/116460/AssociatePortal(MEAN)/app/services/CryptoServices.js
+END
+PasswordServices.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/TCSRepo/!svn/ver/117561/AssociatePortal(MEAN)/app/services/PasswordServices.js
+END
+BookingService.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/TCSRepo/!svn/ver/116547/AssociatePortal(MEAN)/app/services/BookingService.js
+END
+ExpenditureReportService.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/TCSRepo/!svn/ver/114698/AssociatePortal(MEAN)/app/services/ExpenditureReportService.js
+END
+MeetingService.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/TCSRepo/!svn/ver/115685/AssociatePortal(MEAN)/app/services/MeetingService.js
+END
+SignUpServices.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/TCSRepo/!svn/ver/116463/AssociatePortal(MEAN)/app/services/SignUpServices.js
+END
+ProgrammeService.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/TCSRepo/!svn/ver/111479/AssociatePortal(MEAN)/app/services/ProgrammeService.js
+END
+AdminServices.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/TCSRepo/!svn/ver/117717/AssociatePortal(MEAN)/app/services/AdminServices.js
+END
+AssociateService.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/TCSRepo/!svn/ver/118071/AssociatePortal(MEAN)/app/services/AssociateService.js
+END
+LoginServices.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/TCSRepo/!svn/ver/111524/AssociatePortal(MEAN)/app/services/LoginServices.js
+END
+GroupService.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/TCSRepo/!svn/ver/114699/AssociatePortal(MEAN)/app/services/GroupService.js
+END
+RoomService.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/TCSRepo/!svn/ver/112858/AssociatePortal(MEAN)/app/services/RoomService.js
+END
+AssetService.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/TCSRepo/!svn/ver/117965/AssociatePortal(MEAN)/app/services/AssetService.js
+END
+EventService.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/TCSRepo/!svn/ver/116461/AssociatePortal(MEAN)/app/services/EventService.js
+END

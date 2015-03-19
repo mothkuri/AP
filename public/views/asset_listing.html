@@ -1,0 +1,81 @@
+<div id="page-wrapper">
+<div class="container-fluid ng-scope">
+	<div class="row">
+		<!--Sidebar content-->
+		<div class="col-md-3" style="margin-top:10px;">
+			<div class="panel panel-default">
+				<div class="panel-body">
+
+					<div class="input-group custom-search-form" data-ng-show="user.isAdmin">
+						<span class="input-group-btn">
+							<a href="addAsset"><button class="btn btn-primary" type="button">
+								<i class="fa fa-plus">Add New</i>
+							</button>
+							</a>
+						</span>
+					</div>
+
+					<div class="input-group custom-search-form">
+						<input type="text" class="form-control" placeholder="Search..."
+							data-ng-model="search.name"> <span
+							class="input-group-btn">
+							<button class="btn btn-default" type="button">
+								<i class="fa fa-search"></i>
+							</button>
+						</span>
+					</div>
+					<form>
+						<div class="form-group">
+							<label for="employeeId">Asset ID</label> <input type="text"
+								class="form-control" id="employeeId" data-ng-model="search.assetId">
+						</div>
+						
+						<div class="form-group">
+							<label for="employeeId">Owner ID</label> <input type="text"
+								class="form-control" id="employeeId" data-ng-model="search.ownerId">
+						</div>
+						
+						<div class="form-group">
+							<label for="locked_checkbox">Show only Locked</label>
+							 <input type="checkbox" name="locked_checkbox"
+									id="locked_checkbox"  aria-label="..." ng-model="search.isLocked">
+						</div>
+						<!-- <div class="form-group">
+							<label for="radioButton2">Status</label>
+							<div class="radio">
+								<label> <input type="radio" name="Status_radio"
+									id="blankRadio1" value="option1" aria-label="...">
+									Active
+								</label>
+							</div>
+							<div class="radio">
+								<label> <input type="radio" name="Status_radio"
+									id="blankRadio1" value="option1" aria-label="...">
+									Released
+								</label>
+							</div>
+						</div> -->
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-9">
+			<!--Body content-->
+			<ul class="phones">
+				<li class="thumbnail phone-listing" class="animate"
+					data-ng-repeat="asset in assets | filter:search:strict | orderBy:orderProp">
+					<a class="thumb" href="assets/{{asset._id}}"><img
+						src="../uploads/{{asset.imgName}}"></a> <a
+					href="assets/{{asset._id}}">{{asset.name}}</a>
+					<p>{{asset.description}}
+					<p>{{asset.assetId}} {{asset.type}}
+					<p ng-show="asset.isLocked">{{asset.lockedBy}}</p>
+				</li>
+
+			</ul>
+
+		</div>
+	</div>
+</div>
+</div>
