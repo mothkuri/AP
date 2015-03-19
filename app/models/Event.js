@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var autoIncrement = require('mongoose-auto-increment');
 //var connection = mongoose.createConnection("mongodb://localhost/AssociatePortal");
-var connection = mongoose.createConnection('mongodb://admin:D9iULILnQZmb@127.2.41.130:27017/associateportal');
+var connection = mongoose.createConnection('mongodb://associate:associate@ds027771.mongolab.com:27771/associateportal');
 
 autoIncrement.initialize(connection);
 

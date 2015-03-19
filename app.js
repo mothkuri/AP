@@ -205,10 +205,10 @@ if (app.get('env') === 'development') {
 }
 else{
 	// self db on openshift
-	 mongoose.connect('mongodb://admin:D9iULILnQZmb@127.2.41.130:27017/associateportal');
+	 //mongoose.connect('mongodb://admin:D9iULILnQZmb@127.2.41.130:27017/associateportal');
 
 	// mongolab
-	// mongoose.connect('mongodb://associate:associate@ds027771.mongolab.com:27771/associateportal');
+	 mongoose.connect('mongodb://associate:associate@ds027771.mongolab.com:27771/associateportal');
 	
 	// production error handler
 	// no stacktraces leaked to user
