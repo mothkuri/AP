@@ -6,7 +6,7 @@ var express = require('express');
 
 
     var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
-    var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+    var port      = process.env.PORT || 5000;
 
         if (typeof ipaddress === "undefined") {
             // Log errors on OpenShift but continue w/ 127.0.0.1 - this
@@ -29,9 +29,9 @@ var express = require('express');
 var httpServer = http.createServer(app);
 //var httpsServer = https.createServer(credentials, app);
 
-httpServer.listen(port, ipaddress, function() {
+httpServer.listen(port, function() {
             console.log('%s: Node server started on %s:%d ...',
-                        Date(Date.now() ), ipaddress, port);
+                        Date(Date.now() ), port);
         });
 //httpServer.listen(3000);
 //httpsServer.listen(8090);
